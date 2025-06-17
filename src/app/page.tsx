@@ -163,7 +163,7 @@ export default function Home() {
       {/* Section 1: Self Introduction */}
       <section
         id="section-0"
-        className="section min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 pt-20 relative"
+        className="section min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 pt-16 relative"
         style={{
           transform: `translateY(${scrollY * 0.5}px)`,
         }}
@@ -206,26 +206,27 @@ export default function Home() {
               </div>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 animate-slide-up leading-tight">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 animate-slide-up leading-tight">
               Hi, I'm{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-gradient">
-                Peter Tam
+                Lei Ieong Tam
               </span>
             </h1>
 
-            <div className="h-12 sm:h-16 mb-6 sm:mb-8">
+            <div className="h-10 sm:h-12 mb-6 sm:mb-8">
               {isTyping && (
-                <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 inline-block px-2">
+                <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 inline-block px-2">
                   {displayText}
                   <span className="animate-blink">|</span>
                 </p>
               )}
             </div>
 
-            <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400 max-w-xl sm:max-w-2xl mx-auto mb-6 sm:mb-8 animate-fade-in-delay hover:animate-rainbow px-4 sm:px-0">
-              Passionate about creating beautiful, functional, and user-friendly
-              applications. I love turning complex problems into simple,
-              beautiful, and intuitive designs.
+            <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 max-w-xl sm:max-w-2xl mx-auto mb-6 sm:mb-8 animate-fade-in-delay hover:animate-rainbow px-4 sm:px-0">
+              Bachelor of Economics with Computer Programming diploma.
+              Passionate about creating modern web applications using
+              cutting-edge technologies and delivering exceptional user
+              experiences.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4 animate-bounce-in px-4 sm:px-0">
@@ -242,7 +243,13 @@ export default function Home() {
                 View My Work
               </button>
               <button className="w-full sm:w-auto border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 sm:px-8 py-3 rounded-full font-medium transition-all duration-300 hover-lift">
-                Download CV
+                <a
+                  href="/resume.pdf"
+                  download="Lei_Ieong_Tam_Resume.pdf"
+                  className="block w-full h-full"
+                >
+                  Download CV
+                </a>
               </button>
             </div>
           </div>
@@ -252,69 +259,87 @@ export default function Home() {
       {/* Section 2: Work Experience */}
       <section
         id="section-1"
-        className="section min-h-screen flex items-center bg-white dark:bg-gray-900 py-20 relative scroll-mt-16"
+        className="section min-h-screen flex items-center bg-white dark:bg-gray-900 pt-6 md:pt-10 pb-20 relative scroll-mt-16"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 animate-on-scroll">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 animate-slide-in-left hover:animate-glitch">
+          <div className="text-center mb-8 sm:mb-10 animate-on-scroll">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 animate-slide-in-left hover:animate-glitch">
               Work Experience
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 animate-slide-in-right px-4 sm:px-0">
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 animate-slide-in-right px-4 sm:px-0">
               My professional journey and achievements
             </p>
           </div>
 
-          <div className="space-y-6 sm:space-y-8">
+          <div className="space-y-4 sm:space-y-6">
             {[
               {
-                title: "Senior Full Stack Developer",
-                company: "Tech Corp Inc.",
-                period: "2022 - Present",
+                title: "Web Developer",
+                company: "未來巢科技 Futurenest",
+                period: "12/2024 - Present",
                 description:
-                  "Lead development of scalable web applications using React, Node.js, and cloud technologies.",
+                  "Build frontend websites using Next.js and TailwindCSS based on UI/UX designs from Figma. Integrate APIs using Django Rest Framework and research suitable frameworks for company needs.",
+                image: "/images/job2.jpg",
               },
               {
-                title: "Frontend Developer",
-                company: "Digital Agency",
-                period: "2020 - 2022",
+                title: "Customer Service Officer",
+                company: "Macau Light Rapid Transit (MLRT)",
+                period: "2021 - 2023",
                 description:
-                  "Built responsive web applications and collaborated with design teams to implement pixel-perfect UIs.",
-              },
-              {
-                title: "Junior Developer",
-                company: "StartUp Labs",
-                period: "2019 - 2020",
-                description:
-                  "Developed mobile-first applications and gained experience in agile development methodologies.",
+                  "Optimized daily earnings by tracking and reconciling revenue and expenses in Excel. Provided precise financial performance and operation reports.",
+                image: "/images/job1.jpg",
               },
             ].map((job, index) => (
               <div
                 key={index}
-                className={`bg-gray-50 dark:bg-gray-800 rounded-lg p-4 sm:p-6 animate-on-scroll stagger-${
+                className={`bg-white dark:bg-gray-800 rounded-xl p-1 sm:p-2 lg:p-4 animate-on-scroll stagger-${
                   index + 1
-                } hover-lift hover-glow transition-all duration-500 transform`}
+                } hover-lift hover-glow transition-all duration-500 transform shadow-lg hover:shadow-2xl`}
                 style={{
-                  transform: `translateX(${
-                    scrollY * 0.05 * (index % 2 === 0 ? 1 : -1)
-                  }px)`,
+                  transform:
+                    window.innerWidth >= 768
+                      ? `translateX(${
+                          scrollY * 0.05 * (index % 2 === 0 ? 1 : -1)
+                        }px)`
+                      : "none",
                 }}
               >
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white hover:animate-rainbow">
-                      {job.title}
-                    </h3>
-                    <p className="text-blue-600 dark:text-blue-400 font-medium text-sm sm:text-base animate-heartbeat">
-                      {job.company}
-                    </p>
-                    <p className="text-gray-500 dark:text-gray-400 mt-2 text-sm sm:text-base">
+                <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 lg:gap-6">
+                  {/* Image Section */}
+                  <div className="lg:w-1/3 flex-shrink-0">
+                    <div className="relative w-full h-40 sm:h-48 lg:h-60 rounded-lg overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 p-1 animate-pulse-glow">
+                      <div className="w-full h-full rounded-lg overflow-hidden">
+                        <Image
+                          src={job.image}
+                          alt={`${job.company} workplace`}
+                          width={300}
+                          height={300}
+                          className="w-full h-full object-cover hover-scale transition-transform duration-500"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content Section */}
+                  <div className="lg:w-2/3 flex flex-col justify-center px-2 sm:px-0">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2 sm:mb-3">
+                      <div>
+                        <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 dark:text-white hover:animate-rainbow mb-1">
+                          {job.title}
+                        </h3>
+                        <p className="text-blue-600 dark:text-blue-400 font-semibold text-xs sm:text-sm lg:text-base animate-heartbeat">
+                          {job.company}
+                        </p>
+                      </div>
+                      <div className="mt-2 sm:mt-0">
+                        <span className="bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 text-blue-800 dark:text-blue-200 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs font-medium hover-scale animate-wiggle shadow-md">
+                          {job.period}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm lg:text-base leading-relaxed">
                       {job.description}
                     </p>
-                  </div>
-                  <div className="mt-3 sm:mt-4 md:mt-0">
-                    <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-xs sm:text-sm font-medium hover-scale animate-wiggle">
-                      {job.period}
-                    </span>
                   </div>
                 </div>
               </div>
@@ -326,73 +351,128 @@ export default function Home() {
       {/* Section 3: Projects */}
       <section
         id="section-2"
-        className="section min-h-screen flex items-center bg-gray-50 dark:bg-gray-800 py-20 relative scroll-mt-16"
+        className="section min-h-screen flex items-center bg-gray-50 dark:bg-gray-800 pt-6 md:pt-10 pb-20 relative scroll-mt-16"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 animate-on-scroll">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 animate-slide-in-left hover:animate-neon-glow">
+          <div className="text-center mb-8 sm:mb-10 animate-on-scroll">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 animate-slide-in-left hover:animate-neon-glow">
               Featured Projects
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 animate-slide-in-right px-4 sm:px-0">
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 animate-slide-in-right px-4 sm:px-0">
               Some of my recent work and side projects
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
-                title: "E-Commerce Platform",
+                title: "Peter Shop",
                 description:
-                  "Full-stack e-commerce solution with React, Node.js, and PostgreSQL",
-                tech: ["React", "Node.js", "PostgreSQL"],
-                image: "🛒",
+                  "Full-stack e-commerce project with Next.js frontend, Django backend, PostgreSQL database, and Cloudinary storage.",
+                tech: [
+                  "Next.js",
+                  "Django",
+                  "PostgreSQL",
+                  "Vercel",
+                  "Google Cloud",
+                ],
+                image: "/images/project1.jpg",
+                link: "https://www.petershop.shop/",
               },
               {
-                title: "Task Management App",
+                title: "Plan Travel",
                 description:
-                  "Collaborative task management tool with real-time updates",
-                tech: ["Next.js", "Socket.io", "MongoDB"],
-                image: "📋",
-              },
-              {
-                title: "Weather Dashboard",
-                description:
-                  "Beautiful weather app with location-based forecasts",
-                tech: ["React", "API Integration", "Charts"],
-                image: "🌤️",
+                  "Travel planning app with drag-and-drop functionality, Google Maps integration, and Auth.js authentication.",
+                tech: ["Next.js", "PostgreSQL", "Prisma", "Google Maps API"],
+                image: "/images/project2.jpg",
+                link: "https://www.theplantravel.com/",
               },
             ].map((project, index) => (
               <div
                 key={index}
-                className={`bg-white dark:bg-gray-900 rounded-lg p-4 sm:p-6 shadow-md hover:shadow-2xl transition-all duration-500 transform animate-on-scroll stagger-${
+                className={`bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform animate-on-scroll stagger-${
                   index + 1
-                } hover-lift parallax`}
+                } hover-lift overflow-hidden group`}
                 style={{
                   transform: `perspective(1000px) rotateY(${
                     mousePosition.x * 0.005
                   }deg) rotateX(${mousePosition.y * -0.005}deg)`,
                 }}
               >
-                <div className="text-3xl sm:text-4xl mb-3 sm:mb-4 animate-float hover-scale hover-rotate">
-                  {project.image}
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2 hover:animate-glitch">
-                  {project.title}
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-3 sm:mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                  {project.tech.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className={`bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-xs sm:text-sm hover-scale animate-wiggle stagger-${
-                        techIndex + 1
-                      }`}
+                {/* Image Section */}
+                <div className="relative h-40 sm:h-48 lg:h-56 overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 p-1">
+                  <div className="w-full h-full rounded-t-lg overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} screenshot`}
+                      width={400}
+                      height={250}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                  </div>
+                  {/* Overlay with project link */}
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="opacity-0 group-hover:opacity-100 bg-white text-gray-900 px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold text-sm transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-blue-50 shadow-lg"
                     >
-                      {tech}
-                    </span>
-                  ))}
+                      View Live Site →
+                    </a>
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="p-3 sm:p-4 lg:p-6">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 hover:animate-glitch">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm lg:text-base mb-3 sm:mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                    {project.tech.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className={`bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 text-blue-800 dark:text-blue-200 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-xs font-medium hover-scale animate-wiggle shadow-sm stagger-${
+                          techIndex + 1
+                        }`}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Bottom Link */}
+                  <div className="flex items-center justify-between">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 font-semibold text-xs sm:text-sm group/link"
+                    >
+                      Visit Website
+                      <svg
+                        className="w-3 h-3 ml-1 sm:ml-2 transform group-hover/link:translate-x-1 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </a>
+                    <div className="text-lg sm:text-xl animate-float hover-scale hover-rotate">
+                      {project.title.includes("Shop") ? "🛒" : "✈️"}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -403,58 +483,65 @@ export default function Home() {
       {/* Section 4: Skills */}
       <section
         id="section-3"
-        className="section min-h-screen flex items-center bg-white dark:bg-gray-900 py-20 scroll-mt-16"
+        className="section min-h-screen flex items-center bg-white dark:bg-gray-900  pb-20 scroll-mt-16"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 animate-on-scroll">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 animate-slide-in-left hover:animate-rainbow">
+          <div className="text-center mb-8 sm:mb-10 animate-on-scroll">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 animate-slide-in-left hover:animate-rainbow">
               Skills & Technologies
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 animate-slide-in-right px-4 sm:px-0">
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 animate-slide-in-right px-4 sm:px-0">
               Tools and technologies I work with
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
                 category: "Frontend",
-                skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+                skills: [
+                  "HTML",
+                  "CSS",
+                  "React",
+                  "Next.js",
+                  "TailwindCSS",
+                  "TypeScript",
+                ],
                 icon: "🎨",
               },
               {
                 category: "Backend",
-                skills: ["Node.js", "Python", "PostgreSQL", "MongoDB"],
+                skills: ["Django", "Flask", "Node.js", "RESTful APIs"],
                 icon: "⚙️",
               },
               {
-                category: "Tools",
-                skills: ["Git", "Docker", "AWS", "Figma"],
-                icon: "🛠️",
+                category: "Database",
+                skills: ["PostgreSQL", "MySQL", "MongoDB", "Prisma ORM"],
+                icon: "🗄️",
               },
               {
-                category: "Mobile",
-                skills: ["React Native", "Flutter", "iOS", "Android"],
-                icon: "📱",
+                category: "Tools",
+                skills: ["Git", "Docker", "Ubuntu", "Linux"],
+                icon: "🛠️",
               },
             ].map((skillGroup, index) => (
               <div
                 key={index}
                 className={`text-center animate-on-scroll animate-skill-bounce stagger-${
                   index + 1
-                } hover-lift p-2 sm:p-4`}
+                } hover-lift p-2 sm:p-3 lg:p-4`}
               >
-                <div className="text-4xl sm:text-5xl lg:text-6xl mb-3 sm:mb-4 animate-heartbeat hover-scale hover-rotate">
+                <div className="text-2xl sm:text-3xl lg:text-4xl mb-2 sm:mb-3 animate-heartbeat hover-scale hover-rotate">
                   {skillGroup.icon}
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4 hover:animate-neon-glow">
+                <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 dark:text-white mb-2 sm:mb-3 hover:animate-neon-glow">
                   {skillGroup.category}
                 </h3>
-                <ul className="space-y-1.5 sm:space-y-2">
+                <ul className="space-y-1 sm:space-y-1.5">
                   {skillGroup.skills.map((skill, skillIndex) => (
                     <li
                       key={skillIndex}
-                      className={`text-sm sm:text-base text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer hover-scale stagger-${
+                      className={`text-xs text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer hover-scale stagger-${
                         skillIndex + 1
                       }`}
                       onMouseEnter={(e) =>
@@ -488,29 +575,38 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="animate-on-scroll stagger-1 text-center sm:text-left">
-              <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 hover:animate-glitch">
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 hover:animate-glitch">
                 Get In Touch
               </h3>
-              <p className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">
+              <p className="text-gray-300 mb-3 sm:mb-4 text-xs sm:text-sm">
                 I'm always open to discussing new opportunities and interesting
                 projects.
               </p>
               <div className="flex justify-center sm:justify-start space-x-3 sm:space-x-4">
-                {["📧", "💼", "🐙", "🐦"].map((icon, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    className={`text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors hover-scale animate-heartbeat stagger-${
-                      index + 1
-                    }`}
-                  >
-                    {icon}
-                  </a>
-                ))}
+                <a
+                  href="mailto:leeli.petertam@gmail.com"
+                  className="text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors hover-scale animate-heartbeat"
+                >
+                  📧
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/leeli-peter/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors hover-scale animate-heartbeat"
+                >
+                  💼
+                </a>
+                <a
+                  href="tel:+14378559651"
+                  className="text-xl sm:text-2xl text-gray-300 hover:text-white transition-colors hover-scale animate-heartbeat"
+                >
+                  📞
+                </a>
               </div>
             </div>
             <div className="animate-on-scroll stagger-2 text-center sm:text-left">
-              <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 hover:animate-neon-glow">
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 hover:animate-neon-glow">
                 Quick Links
               </h3>
               <ul className="space-y-1.5 sm:space-y-2">
@@ -519,7 +615,7 @@ export default function Home() {
                     <li key={index}>
                       <button
                         onClick={() => scrollToSection(index)}
-                        className={`text-sm sm:text-base text-gray-300 hover:text-white transition-colors hover-lift stagger-${
+                        className={`text-xs sm:text-sm text-gray-300 hover:text-white transition-colors hover-lift stagger-${
                           index + 1
                         }`}
                       >
@@ -531,19 +627,19 @@ export default function Home() {
               </ul>
             </div>
             <div className="animate-on-scroll stagger-3 text-center sm:text-left sm:col-span-2 lg:col-span-1">
-              <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 hover:animate-rainbow">
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 hover:animate-rainbow">
                 Contact Info
               </h3>
-              <div className="text-gray-300 space-y-1.5 sm:space-y-2 text-sm sm:text-base">
-                <p className="hover-scale">📍 San Francisco, CA</p>
-                <p className="hover-scale">📧 john.doe@example.com</p>
-                <p className="hover-scale">📞 +1 (555) 123-4567</p>
+              <div className="text-gray-300 space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
+                <p className="hover-scale">📍 Toronto, ON</p>
+                <p className="hover-scale">📧 leeli.petertam@gmail.com</p>
+                <p className="hover-scale">📞 +1 (437) 855-9651</p>
               </div>
             </div>
           </div>
           <div className="border-t border-gray-700 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-400 animate-on-scroll">
-            <p className="hover:animate-glitch text-sm sm:text-base">
-              &copy; 2024 John Doe. All rights reserved.
+            <p className="hover:animate-glitch text-xs sm:text-sm">
+              &copy; 2024 Lei Ieong Tam. All rights reserved.
             </p>
           </div>
         </div>
