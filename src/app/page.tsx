@@ -7,6 +7,8 @@ export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
+  const [displayText, setDisplayText] = useState("");
+  const fullText = "Frontend Web Developer";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +46,18 @@ export default function Home() {
     window.addEventListener("mousemove", handleMouseMove);
 
     // Start typing animation after a delay
-    setTimeout(() => setIsTyping(true), 2000);
+    setTimeout(() => {
+      setIsTyping(true);
+      let currentIndex = 0;
+      const typingInterval = setInterval(() => {
+        if (currentIndex <= fullText.length) {
+          setDisplayText(fullText.slice(0, currentIndex));
+          currentIndex++;
+        } else {
+          clearInterval(typingInterval);
+        }
+      }, 50); // Adjust typing speed here
+    }, 2000);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -166,22 +179,28 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="animate-fade-in-up">
             <div className="mb-6 sm:mb-8">
-              <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 sm:mb-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1 animate-pulse-glow hover-glow">
+              <div className="w-32 h-32 sm:w-56 sm:h-56 mx-auto mb-4 sm:mb-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1 animate-pulse-glow hover-glow">
                 <div className="w-full h-full rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center animate-morphing hover-scale">
-                  <span className="text-2xl sm:text-4xl animate-wiggle">
-                    👨‍💻
+                  <span className="w-32 h-32 sm:w-48 sm:h-48 animate-wiggle">
+                    <Image
+                      src="/images/myself.jpg"
+                      alt="Peter Tam"
+                      width={200}
+                      height={200}
+                      className="rounded-full w-full h-full object-cover"
+                    />
                   </span>
                 </div>
               </div>
               {/* Sparkle effects around avatar */}
               <div className="relative hidden sm:block">
-                <div className="absolute -top-2 -left-2 w-2 h-2 bg-yellow-400 rounded-full animate-sparkle" />
+                <div className="absolute -top-4 -left-4 w-3 h-3 bg-yellow-400 rounded-full animate-sparkle" />
                 <div
-                  className="absolute -top-4 right-4 w-1 h-1 bg-blue-400 rounded-full animate-sparkle"
+                  className="absolute -top-6 right-6 w-2 h-2 bg-blue-400 rounded-full animate-sparkle"
                   style={{ animationDelay: "0.5s" }}
                 />
                 <div
-                  className="absolute bottom-0 -left-4 w-1.5 h-1.5 bg-pink-400 rounded-full animate-sparkle"
+                  className="absolute bottom-0 -left-6 w-2.5 h-2.5 bg-pink-400 rounded-full animate-sparkle"
                   style={{ animationDelay: "1s" }}
                 />
               </div>
@@ -190,14 +209,15 @@ export default function Home() {
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 animate-slide-up leading-tight">
               Hi, I'm{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-gradient">
-                John Doe
+                Peter Tam
               </span>
             </h1>
 
             <div className="h-12 sm:h-16 mb-6 sm:mb-8">
               {isTyping && (
-                <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 animate-typewriter inline-block px-2">
-                  Full Stack Developer & UI/UX Designer
+                <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 inline-block px-2">
+                  {displayText}
+                  <span className="animate-blink">|</span>
                 </p>
               )}
             </div>
