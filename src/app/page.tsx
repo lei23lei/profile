@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Home() {
@@ -207,7 +207,7 @@ export default function Home() {
             </div>
 
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 animate-slide-up leading-tight">
-              Hi, I'm{" "}
+              Hi, I&apos;m{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-gradient">
                 Lei Ieong Tam
               </span>
@@ -259,7 +259,7 @@ export default function Home() {
       {/* Section 2: Work Experience */}
       <section
         id="section-1"
-        className="section min-h-screen flex items-center bg-white dark:bg-gray-900 pt-6 md:pt-10 pb-20 relative scroll-mt-16"
+        className="section min-h-screen flex items-center bg-white dark:bg-gray-900 pt-4 md:pt-6 pb-20 relative scroll-mt-16"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 animate-on-scroll">
@@ -297,7 +297,7 @@ export default function Home() {
                 } hover-lift hover-glow transition-all duration-500 transform shadow-lg hover:shadow-2xl`}
                 style={{
                   transform:
-                    window.innerWidth >= 768
+                    typeof window !== "undefined" && window.innerWidth >= 768
                       ? `translateX(${
                           scrollY * 0.05 * (index % 2 === 0 ? 1 : -1)
                         }px)`
@@ -307,7 +307,7 @@ export default function Home() {
                 <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 lg:gap-6">
                   {/* Image Section */}
                   <div className="lg:w-1/3 flex-shrink-0">
-                    <div className="relative w-full h-40 sm:h-48 lg:h-60 rounded-lg overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 p-1 animate-pulse-glow">
+                    <div className="relative w-full h-40 sm:h-48 2xl:h-60 rounded-lg overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600 p-1 animate-pulse-glow">
                       <div className="w-full h-full rounded-lg overflow-hidden">
                         <Image
                           src={job.image}
@@ -579,8 +579,8 @@ export default function Home() {
                 Get In Touch
               </h3>
               <p className="text-gray-300 mb-3 sm:mb-4 text-xs sm:text-sm">
-                I'm always open to discussing new opportunities and interesting
-                projects.
+                I&apos;m always open to discussing new opportunities and
+                interesting projects.
               </p>
               <div className="flex justify-center sm:justify-start space-x-3 sm:space-x-4">
                 <a
