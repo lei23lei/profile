@@ -274,7 +274,7 @@ export default function Home() {
           <div className="space-y-4 sm:space-y-6">
             {[
               {
-                title: "Web Developer",
+                title: "Frontend Developer",
                 company: "未來巢科技 Futurenest",
                 period: "12/2024 - Present",
                 description:
