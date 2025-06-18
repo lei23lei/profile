@@ -123,6 +123,7 @@ export default function Home() {
               { name: "About", icon: "👤" },
               { name: "Experience", icon: "💼" },
               { name: "Projects", icon: "🚀" },
+              { name: "Education", icon: "🎓" },
               { name: "Skills", icon: "⚙️" },
             ].map((item, index) => (
               <button
@@ -152,7 +153,7 @@ export default function Home() {
               Portfolio
             </div>
             <div className="hidden sm:flex space-x-4 lg:space-x-8">
-              {["About", "Experience", "Projects", "Skills"].map(
+              {["About", "Experience", "Projects", "Education", "Skills"].map(
                 (item, index) => (
                   <button
                     key={item}
@@ -170,7 +171,7 @@ export default function Home() {
             </div>
             {/* Mobile Navigation */}
             <div className="sm:hidden flex space-x-1">
-              {["About", "Experience", "Projects", "Skills"].map(
+              {["About", "Experience", "Projects", "Education", "Skills"].map(
                 (item, index) => (
                   <button
                     key={item}
@@ -209,7 +210,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="animate-fade-in-up">
             <div className="mb-6 sm:mb-8">
-              <div className="w-32 h-32 sm:w-56 sm:h-56 mx-auto mb-4 sm:mb-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1 animate-pulse-glow hover-glow">
+              <div className="w-40 h-40 sm:w-56 sm:h-56 mx-auto mb-4 sm:mb-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1 animate-pulse-glow hover-glow">
                 <div className="w-full h-full rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center animate-morphing hover-scale">
                   <span className="w-32 h-32 sm:w-48 sm:h-48 animate-wiggle">
                     <Image
@@ -510,9 +511,112 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 4: Skills */}
+      {/* Section 4: Education */}
       <section
         id="section-3"
+        className="section min-h-screen flex items-center bg-white dark:bg-gray-900 pt-6 md:pt-10 pb-20 relative md:scroll-mt-16"
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-10 animate-on-scroll">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 animate-slide-in-left hover:animate-glitch">
+              Education
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 animate-slide-in-right px-4 sm:px-0">
+              My academic background and achievements
+            </p>
+          </div>
+
+          <div className="space-y-4 sm:space-y-6">
+            {[
+              {
+                institution: "Humber Polytechnic",
+                period: "09/2023 – 08/2025 (expected)",
+                degree: "Computer Programming",
+                description:
+                  "Learning fundamental web application development technologies. Studying object-oriented programming with Java, database design, operating systems, and software development principles.",
+                gpa: "91.5",
+                image: "/images/humber.jpg",
+              },
+              {
+                institution: "Soochow University",
+                period: "09/2015 – 01/2020",
+                degree: "Bachelor of Economics",
+                description:
+                  "Gained a deep understanding of economic principles, including supply and demand, and statistics. Applied Python for data analysis and interpretation.",
+                gpa: null,
+                image: "/images/soochow.jpg",
+              },
+            ].map((edu, index) => (
+              <div
+                key={index}
+                className={`bg-white dark:bg-gray-800 rounded-xl p-1 sm:p-2 lg:p-4 animate-on-scroll stagger-${
+                  index + 1
+                } hover-lift hover-glow transition-all duration-500 transform shadow-lg hover:shadow-2xl`}
+                style={{
+                  transform:
+                    typeof window !== "undefined" && window.innerWidth >= 768
+                      ? `translateX(${
+                          scrollY * 0.05 * (index % 2 === 0 ? 1 : -1)
+                        }px)`
+                      : "none",
+                }}
+              >
+                <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 lg:gap-6">
+                  {/* Image Section */}
+                  <div className="lg:w-1/3 flex-shrink-0">
+                    <div className="relative w-full h-40  2xl:h-48 rounded-lg overflow-hidden bg-gradient-to-r from-green-500 to-blue-600 p-1 animate-pulse-glow">
+                      <div className="w-full h-full rounded-lg overflow-hidden bg-white">
+                        <Image
+                          src={
+                            index === 0
+                              ? "/images/school1.jpg"
+                              : "/images/school2.jpg"
+                          }
+                          alt={`${edu.institution} campus`}
+                          width={300}
+                          height={300}
+                          className="w-full h-40 mt-0 md:mt-2  object-cover hover-scale transition-transform duration-500"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content Section */}
+                  <div className="lg:w-2/3 flex flex-col justify-center px-2 sm:px-0">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2 sm:mb-3">
+                      <div>
+                        <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 dark:text-white hover:animate-rainbow mb-1">
+                          {edu.degree}
+                        </h3>
+                        <p className="text-green-600 dark:text-green-400 font-semibold text-xs sm:text-sm lg:text-base animate-heartbeat">
+                          {edu.institution}
+                        </p>
+                      </div>
+                      <div className="mt-2 sm:mt-0 flex flex-col items-start sm:items-end">
+                        <span className="bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900 dark:to-blue-900 text-green-800 dark:text-green-200 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs font-medium hover-scale animate-wiggle shadow-md mb-1">
+                          {edu.period}
+                        </span>
+                        {edu.gpa && (
+                          <span className="bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900 dark:to-orange-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs font-medium hover-scale shadow-md">
+                            GPA: {edu.gpa}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm lg:text-base leading-relaxed">
+                      {edu.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Skills */}
+      <section
+        id="section-4"
         className="section min-h-screen flex items-center bg-white dark:bg-gray-900  pb-20 md:scroll-mt-16"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -640,7 +744,7 @@ export default function Home() {
                 Quick Links
               </h3>
               <ul className="space-y-1.5 sm:space-y-2">
-                {["About", "Experience", "Projects", "Skills"].map(
+                {["About", "Experience", "Projects", "Education", "Skills"].map(
                   (item, index) => (
                     <li key={index}>
                       <button
