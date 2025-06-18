@@ -68,7 +68,9 @@ export default function Home() {
   const scrollToSection = (index: number) => {
     const section = document.getElementById(`section-${index}`);
     if (section) {
-      const navHeight = 64; // Height of the fixed navigation bar
+      // Check if we're on mobile (navigation is hidden)
+      const isMobile = window.innerWidth < 768; // md breakpoint
+      const navHeight = isMobile ? 0 : 64; // No offset on mobile, 64px on desktop
       const elementPosition = section.offsetTop - navHeight;
 
       window.scrollTo({
@@ -114,8 +116,8 @@ export default function Home() {
         />
       </div>
       {/* Phone Navigation */}
-      <div className="fixed bottom-1/2 right-3 z-50 translate-y-1/2">
-        <div className="bg-white/20 dark:bg-black/20 backdrop-blur-md rounded-full p-2 shadow-xl border border-white/30 dark:border-white/10 glass-morphism">
+      <div className="fixed bottom-1/2 right-1 z-50 translate-y-1/2">
+        <div className="bg-white/20 dark:bg-black/20 backdrop-blur-md rounded-full p-1 md:p-2 shadow-xl border border-white/30 dark:border-white/10 glass-morphism">
           <div className="flex flex-col items-center justify-center space-y-3">
             {[
               { name: "About", icon: "👤" },
@@ -126,7 +128,7 @@ export default function Home() {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(index)}
-                className={`w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 flex items-center justify-center text-sm shadow-md ${
+                className={`w-6 h-6 md:w-8 md:h-8 rounded-full transition-all duration-300 hover:scale-110 flex items-center justify-center text-xs md:text-sm shadow-md ${
                   activeSection === index
                     ? "bg-blue-500/80 text-white animate-pulse shadow-blue-500/50 backdrop-blur-sm border border-blue-400/50"
                     : "bg-white/30 dark:bg-gray-800/30 hover:bg-white/50 dark:hover:bg-gray-700/50 text-gray-700 dark:text-gray-200 backdrop-blur-sm border border-white/20 dark:border-gray-600/20"
@@ -143,7 +145,7 @@ export default function Home() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700 animate-slide-in-top">
+      <nav className="hidden md:block md:fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700 animate-slide-in-top">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white animate-glitch">
@@ -191,7 +193,7 @@ export default function Home() {
       {/* Section 1: Self Introduction */}
       <section
         id="section-0"
-        className="section min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 pt-16 relative"
+        className="section min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 md:pt-16 relative"
         style={{
           transform: `translateY(${scrollY * 0.5}px)`,
         }}
@@ -287,7 +289,7 @@ export default function Home() {
       {/* Section 2: Work Experience */}
       <section
         id="section-1"
-        className="section min-h-screen flex items-center bg-white dark:bg-gray-900 pt-4 md:pt-6 pb-20 relative scroll-mt-16"
+        className="section min-h-screen flex items-center bg-white dark:bg-gray-900 pt-4 md:pt-6 pb-20 relative md:scroll-mt-16"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 animate-on-scroll">
@@ -379,7 +381,7 @@ export default function Home() {
       {/* Section 3: Projects */}
       <section
         id="section-2"
-        className="section min-h-screen flex items-center bg-gray-50 dark:bg-gray-800 pt-6 md:pt-10 pb-20 relative scroll-mt-16"
+        className="section min-h-screen flex items-center bg-gray-50 dark:bg-gray-800 pt-6 md:pt-10 pb-20 relative md:scroll-mt-16"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 animate-on-scroll">
@@ -511,7 +513,7 @@ export default function Home() {
       {/* Section 4: Skills */}
       <section
         id="section-3"
-        className="section min-h-screen flex items-center bg-white dark:bg-gray-900  pb-20 scroll-mt-16"
+        className="section min-h-screen flex items-center bg-white dark:bg-gray-900  pb-20 md:scroll-mt-16"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 animate-on-scroll">
