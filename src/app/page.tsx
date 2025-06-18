@@ -382,7 +382,7 @@ export default function Home() {
       {/* Section 3: Projects */}
       <section
         id="section-2"
-        className="section min-h-screen flex items-center bg-gray-50 dark:bg-gray-800 pt-6 md:pt-10 pb-20 relative md:scroll-mt-16"
+        className="section min-h-screen flex items-center bg-gray-50 dark:bg-gray-800 pt-6  pb-20 relative md:scroll-mt-16"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 animate-on-scroll">
@@ -514,7 +514,7 @@ export default function Home() {
       {/* Section 4: Education */}
       <section
         id="section-3"
-        className="section min-h-screen flex items-center bg-white dark:bg-gray-900 pt-6 md:pt-10 pb-20 relative md:scroll-mt-16"
+        className="section min-h-screen flex items-center bg-white dark:bg-gray-900 pt-6  pb-20 relative md:scroll-mt-16"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 animate-on-scroll">
