@@ -561,7 +561,7 @@ export default function Home() {
                       : "none",
                 }}
               >
-                <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 lg:gap-6">
+                <div className="flex flex-col md:flex-row gap-3 sm:gap-4 lg:gap-6">
                   {/* Image Section */}
                   <div className="lg:w-1/3 flex-shrink-0">
                     <div className="relative w-full h-40  2xl:h-48 rounded-lg overflow-hidden bg-gradient-to-r from-green-500 to-blue-600 p-1 animate-pulse-glow">
@@ -575,7 +575,7 @@ export default function Home() {
                           alt={`${edu.institution} campus`}
                           width={300}
                           height={300}
-                          className="w-full h-40 mt-0 md:mt-2  object-cover hover-scale transition-transform duration-500"
+                          className="w-full h-40 -mt-1 2xl:mt-1 object-cover hover-scale transition-transform duration-500"
                         />
                       </div>
                     </div>
