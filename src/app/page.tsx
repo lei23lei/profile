@@ -575,7 +575,7 @@ export default function Home() {
                           alt={`${edu.institution} campus`}
                           width={300}
                           height={300}
-                          className="w-full h-40 -mt-1 2xl:mt-1 object-cover hover-scale transition-transform duration-500"
+                          className="w-full h-40 -mt-1 2xl:mt-3 object-cover hover-scale transition-transform duration-500"
                         />
                       </div>
                     </div>
