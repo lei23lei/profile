@@ -113,6 +113,34 @@ export default function Home() {
           }}
         />
       </div>
+      {/* Phone Navigation */}
+      <div className="fixed bottom-1/2 right-3 z-50 translate-y-1/2">
+        <div className="bg-white/20 dark:bg-black/20 backdrop-blur-md rounded-full p-2 shadow-xl border border-white/30 dark:border-white/10 glass-morphism">
+          <div className="flex flex-col items-center justify-center space-y-3">
+            {[
+              { name: "About", icon: "👤" },
+              { name: "Experience", icon: "💼" },
+              { name: "Projects", icon: "🚀" },
+              { name: "Skills", icon: "⚙️" },
+            ].map((item, index) => (
+              <button
+                key={item.name}
+                onClick={() => scrollToSection(index)}
+                className={`w-8 h-8 rounded-full transition-all duration-300 hover:scale-110 flex items-center justify-center text-sm shadow-md ${
+                  activeSection === index
+                    ? "bg-blue-500/80 text-white animate-pulse shadow-blue-500/50 backdrop-blur-sm border border-blue-400/50"
+                    : "bg-white/30 dark:bg-gray-800/30 hover:bg-white/50 dark:hover:bg-gray-700/50 text-gray-700 dark:text-gray-200 backdrop-blur-sm border border-white/20 dark:border-gray-600/20"
+                }`}
+                title={item.name}
+              >
+                <span className="animate-bounce-gentle drop-shadow-sm">
+                  {item.icon}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700 animate-slide-in-top">
