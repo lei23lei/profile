@@ -208,7 +208,7 @@ export default function Home() {
         </div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="animate-fade-in-up">
+          <div className="animate-fade-in-up -mt-8 md:-mt-0">
             <div className="mb-6 sm:mb-8">
               <div className="w-40 h-40 sm:w-56 sm:h-56 mx-auto mb-4 sm:mb-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1 animate-pulse-glow hover-glow">
                 <div className="w-full h-full rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center animate-morphing hover-scale">
@@ -328,7 +328,7 @@ export default function Home() {
                 } hover-lift hover-glow transition-all duration-500 transform shadow-lg hover:shadow-2xl`}
                 style={{
                   transform:
-                    typeof window !== "undefined" && window.innerWidth >= 768
+                    typeof window !== "undefined" && window.innerWidth >= 1068
                       ? `translateX(${
                           scrollY * 0.05 * (index % 2 === 0 ? 1 : -1)
                         }px)`
@@ -554,9 +554,9 @@ export default function Home() {
                 } hover-lift hover-glow transition-all duration-500 transform shadow-lg hover:shadow-2xl`}
                 style={{
                   transform:
-                    typeof window !== "undefined" && window.innerWidth >= 768
+                    typeof window !== "undefined" && window.innerWidth >= 1068
                       ? `translateX(${
-                          scrollY * 0.05 * (index % 2 === 0 ? 1 : -1)
+                          scrollY * 0.02 * (index % 2 === 0 ? 1 : -1)
                         }px)`
                       : "none",
                 }}
