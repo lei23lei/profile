@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useHydrated } from "./useHydrated";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState(0);
@@ -9,6 +10,7 @@ export default function Home() {
   const [isTyping, setIsTyping] = useState(false);
   const [displayText, setDisplayText] = useState("");
   const fullText = "Frontend Web Developer";
+  const isHydrated = useHydrated();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -275,11 +277,12 @@ export default function Home() {
               </button>
               <button className="w-full sm:w-auto border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 sm:px-8 py-3 rounded-full font-medium transition-all duration-300 hover-lift">
                 <a
-                  href="/resume.pdf"
-                  download="Lei_Ieong_Tam_Resume.pdf"
+                  href="https://www.canva.com/design/DAGtGnfvHck/hMD_I3e9cHUZV792w4I62Q/edit?utm_content=DAGtGnfvHck&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block w-full h-full"
                 >
-                  Download CV
+                  View My Resume
                 </a>
               </button>
             </div>
@@ -328,7 +331,7 @@ export default function Home() {
                 } hover-lift hover-glow transition-all duration-500 transform shadow-lg hover:shadow-2xl`}
                 style={{
                   transform:
-                    typeof window !== "undefined" && window.innerWidth >= 1068
+                    isHydrated && window.innerWidth >= 1068
                       ? `translateX(${
                           scrollY * 0.05 * (index % 2 === 0 ? 1 : -1)
                         }px)`
@@ -394,12 +397,12 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
                 title: "Peter Shop",
                 description:
-                  "Full-stack e-commerce project with Next.js frontend, Django backend, PostgreSQL database, and Cloudinary storage.",
+                  "Full-stack e-commerce project with Next.js frontend, Django backend, PostgreSQL database, and Cloudinary storage for seamless online shopping experience.",
                 tech: [
                   "Next.js",
                   "Django",
@@ -413,10 +416,31 @@ export default function Home() {
               {
                 title: "Plan Travel",
                 description:
-                  "Travel planning app with drag-and-drop functionality, Google Maps integration, and Auth.js authentication.",
-                tech: ["Next.js", "PostgreSQL", "Prisma", "Google Maps API"],
+                  "Full-stack travel planning solution built with Next.js featuring Auth.js authentication, Google Maps API integration, and drag-and-drop functionality for real-time trip planning and route calculation.",
+                tech: [
+                  "Next.js",
+                  "TailwindCSS",
+                  "PostgreSQL",
+                  "Google Maps API",
+                  "React Draggable",
+                  "Auth.js",
+                ],
                 image: "/images/project2.jpg",
                 link: "https://www.theplantravel.com/",
+              },
+              {
+                title: "Peter Wordle",
+                description:
+                  "Two-player Wordle game with WebSocket real-time gameplay, dark mode feature, and responsive design optimized for mobile and laptop devices.",
+                tech: [
+                  "React",
+                  "Next.js",
+                  "TailwindCSS",
+                  "Node.js",
+                  "WebSocket",
+                ],
+                image: "/images/project3.jpg",
+                link: "https://peterwordle.online",
               },
             ].map((project, index) => (
               <div
@@ -425,9 +449,11 @@ export default function Home() {
                   index + 1
                 } hover-lift overflow-hidden group`}
                 style={{
-                  transform: `perspective(1000px) rotateY(${
-                    mousePosition.x * 0.005
-                  }deg) rotateX(${mousePosition.y * -0.005}deg)`,
+                  transform: isHydrated
+                    ? `perspective(1000px) rotateY(${
+                        mousePosition.x * 0.005
+                      }deg) rotateX(${mousePosition.y * -0.005}deg)`
+                    : "none",
                 }}
               >
                 {/* Image Section */}
@@ -501,7 +527,11 @@ export default function Home() {
                       </svg>
                     </a>
                     <div className="text-lg sm:text-xl animate-float hover-scale hover-rotate">
-                      {project.title.includes("Shop") ? "🛒" : "✈️"}
+                      {project.title.includes("Shop")
+                        ? "🛒"
+                        : project.title.includes("Wordle")
+                        ? "🎯"
+                        : "✈️"}
                     </div>
                   </div>
                 </div>
@@ -554,7 +584,7 @@ export default function Home() {
                 } hover-lift hover-glow transition-all duration-500 transform shadow-lg hover:shadow-2xl`}
                 style={{
                   transform:
-                    typeof window !== "undefined" && window.innerWidth >= 1068
+                    isHydrated && window.innerWidth >= 1068
                       ? `translateX(${
                           scrollY * 0.02 * (index % 2 === 0 ? 1 : -1)
                         }px)`
